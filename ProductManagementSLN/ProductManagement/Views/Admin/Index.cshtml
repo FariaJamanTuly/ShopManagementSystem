@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ProductManagement.Models.ViewModels.UserRoleViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<div class="container-fluid">
+    <p>@Html.ActionLink("Create Role","CreateRole")</p>
+    <div class="my-5">
+        <div class="row">
+            <h3>Available Roles</h3>
+            <div class="col-md-12 table-responsive">
+                <table class="table table-bordered ">
+                    <tr>
+                        <th>Operations</th>
+                        <th> @Html.DisplayNameFor(model => model.UserId)</th>
+                        <th> @Html.DisplayNameFor(model => model.RoleId)</th>
+                        <th> @Html.DisplayNameFor(model => model.RoleName)</th>
+                        <th> @Html.DisplayNameFor(model => model.UseName)</th>
+                        
+
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.RoleId }, new { @class = "btn btn-warning" })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.RoleId }, new { @class = "btn btn-danger" })
+                                @Html.ActionLink("Detais", "Details", new { id = item.RoleId }, new { @class = "btn btn-success" })
+                            </td>
+                            <td>@Html.DisplayFor(modelItem => item.UserId)</td>
+                            <td>@Html.DisplayFor(modelItem => item.RoleId)</td>
+                           
+                            <td>@Html.DisplayFor(modelItem => item.RoleName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.UseName)</td>
+                            
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+    
+</div>

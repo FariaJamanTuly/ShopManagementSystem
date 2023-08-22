@@ -1,0 +1,24 @@
+﻿@model IEnumerable<ProductManagement.Models.Supplier>
+@{
+        //Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<h3>Supplier List</h3>
+<div>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th colspan="2"><h5>Page Loading @@: @DateTime.Now.ToString()</h5></th>
+        </tr>
+        <tr>
+            <th>Supplier Id</th>
+            <th>Supplier Name</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.SupplierId</td>
+                <td>@item.SupplierName</td>
+            </tr>
+        }
+    </table>
+</div>
